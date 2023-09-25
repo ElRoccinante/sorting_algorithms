@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * print_array
+ * print_array - Prints an array of integers
  *
  * @array: The array
  * @size: Number
