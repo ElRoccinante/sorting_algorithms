@@ -1,22 +1,37 @@
-#include <stdlib.h>
-#include <stdio.h>
-/**
- * print_array - print array
- *
- * @array: The array
- * @size: Number
- */
-void print_array(const int *array, size_t size)
-{
-	size_t i;
+#include "sort.h"
 
-	i = 0;
-	while (array && i < size)
+/**
+ * bubble_sort - array sorting
+ *
+ * @array: The array printing
+ * @size: Number of elements in @array
+ */
+void bubble_sort(int *array, size_t size)
+{
+	int i, j, tmp, flag;
+
+	j = 0;
+	i = size;
+	flag = 0;
+	if (array == NULL || size < 2)
+		return;
+	while (i > 0)
 	{
-		if (i > 0)
-			printf(", ");
-		printf("%d", array[i]);
-		++i;
+		j = 0;
+		while (j + 1 < i)
+		{
+			if (array[j] > array[j + 1])
+			{
+				tmp = array[j + 1];
+				array[j + 1] = array[j];
+				array[j] = tmp;
+				flag = 1;
+				print_array(array, size);
+			}
+			j++;
+		}
+		i--;
+		if (flag == 0)
+			break;
 	}
-	printf("\n");
 }
